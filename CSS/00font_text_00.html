@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>서체(폰트) 스타일 연습</title>
+</head>
+<body>
+    <!--font-style, font-size-->
+    <h1>폰트 사이즈 및 스타일</h1>
+    <span>span 폰트 사이즈 입니다.(기본)</span><br>
+    <span style="font-size:12pt;">span 폰트 사이즈 입니다.(기본)</span><br>
+    <span style="font-size:13pt;">폰트 사이즈 13pt 입니다.</span><br>
+    <span style="font-size:13px;">폰트 사이즈 13px 입니다.</span><br><br>
+    
+    <span style="font-size:2.5em;">글꼴의 크기를 2.5em 으로 변경합니다.</span><br><!--16px의 배수-->
+    <span style="font-size:250%;">style속성을 이용한 글자 크기 변경</span><br><br>
+    <span style="font-size:0.7em;">글꼴의 크기를 0.7em 으로 변경합니다.</span><br><!--16px의 배수-->
+    <span style="font-size:70%;">style속성을 이용한 글자 크기 변경</span><br><br>
+    <span style="font-style:italic;">p태그의 이탤릭체-글자기울임꼴 기본폰트 사이즈 입니다</span><br>
+
+    <!-- color -->
+    <h1>폰트 색상</h1>
+    <h1 style="color:rgb(255,192,192);">RGB 색상값으로 표현된 연분홍색</h1><!--0~F(16진수) = 0~255-->
+<h1 style="color:rgba(0,128,128,100%);">RGBA 색상값으로 표현된 청록색</h1><!--(r,g,b, alpah) alpha=투명도(0~1.0))-->
+    <p style="color:hsl(240, 100%, 50%)">HSL색상값으로 표현</p><!--Hue, -->
+    <p style="color:hsla(180, 100%, 50%, 0.5)">HSLA색상값으로 표현0.5</p>
+    <p style="color:#ff0000">폰트 색상 레드, 16진수 값으로 표현</p>
+    <p style="color:#f00">폰트 색상 레드, 16진수 값으로 표현(단축식)</p>
+    <p style="color:blue">폰트 색상 블루</p>
+    <hr>
+
+    <!--font-family-->
+    <h1>폰트 서체</h1>
+    <p>기본 폰트 서체 사용</p>
+    <p style="font-family:돋움체">폰트 돋움체 사용</p>
+    <p style="font-family:궁서체">폰트 궁서체 사용</p>
+    <h2>복합적인 사용</h2>
+    <p style='font-size:16px;color:red; font-family: "Times New Roman",궁서체;'>폰트 사이즈5, 컬러는 레드, 폰트 궁서체 사용</p>
+    <hr>
+
+    <!--font-weight
+    100~900r값,
+    bold, bolder, lighter, normal(400)
+    inherit : 상속된 값으로 설정
+    initial : 브라우저의 텍스트에 해당되는 초기값으로 설정
+    unset   : 부모 스타일을 따르거나, 없으면 초기 기본값 적용
+    revert  : 브라우저에서 제공하는 해당 태그의 기본값으로 리셋
+    revert-layer : 이전 "스타일 레이어"의 값으로 되돌림
+    -->
+    <h1>font-weight 속성을 이용한 글꼴의 두께 설정</h1>
+    <p style="font-weight: normal">이 텍스트의 두께는 normal 스타일이 적용되어 있습니다.</p>
+    <p style="font-weight: 600">이 텍스트의 두께는 600 스타일이 적용되어 있습니다.</p>
+    <p style="font-weight: bolder">이 텍스트의 두께는 bolder 스타일이 적용되어 있습니다.</p>
+    <p style="font-weight: lighter">이 텍스트의 두께는 lighter 스타일이 적용되어 있습니다.</p>
+    
+    <!--웹 페이지에는 여러 스타일 레이어가 있다.
+    종류 : 
+    - 브라우저 기본 스타일(user agent stylesheet)
+    : 브라우저에 설정된 기본 스타일
+    
+    - 사용자 스타일(사용자가 직접 지정한 스타일)
+    : 웹사이트를 보는 사용자가 자신의 브라우저에 설정한 CSS(접근성 조정 등)
+    
+    - 개발자가 쓴 스타일(author stylesheet)
+    : 우리가 만든 외부 스타일(.css만든 파일들)이나 추가한 외부 스타일들(예:Bootstrap)
+    * 선택자의 우선순위에 따라 순서가 존재하기도 하고, 동순위 인 경우는 마지막 기술된 스타일이 덮어쓰기됨.
+    -->
+    <div style="font-size:50px;font-weight:lighter;">
+        <span style="font-size:50px">서체사이즈비교(50%)</span><br>
+        <span style="font-size:0.5em">서체사이즈비교(0.5em)</span><br>
+        <hr>
+        <span style="font-size:0.5rem">서체사이즈비교(0.5rem)</span><br>
+        <h1 style="font-weight:400;">서체사이즈 및 굵기 비교(h1)</h1>
+    </div>
+    <hr>
+
+    <!--
+    text-align :
+    자식요소들 중 인라인레벨 요소의 수평정렬을 설정하는 속성.
+    움직이고자하는 태그의 부모태그에 기술해야 한다.
+    움직일 수 있는 공간이 있는 요소여야만 한다.
+    -->
+    <h1 style="text-align:center">Centered Heading</h1>
+    <p style="text-align:center">Centered paragraph</p>
+    <img src="img/cute_dog.jpg" style="text-align:260px">
+    <p style="text-align:center;"><!--적용되지 않음-->
+        <img src="img/cute_dog.jpg" style="text-align:260px">
+    </p><br>
+</body>
+</html>

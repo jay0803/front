@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>조합 선택자</title>
+<style>
+    div {
+        border: 1px solid #000000;padding:10px;
+    }
+    /*하위 선택자*/
+    div p {
+        background-color: yellow;
+    }
+    /*자식 선택자*/
+    div > span {
+        background-color: red;
+    }
+</style>
+</head>
+<body>
+<h2>조합 선택자(Combinator selectios)</h2>
+둘 이상의 단순 선택자를 포함 할 수 있다<br>
+단순 선택자 사이에 결합자(+)를 포함 할 수 있다<br>
+
+<div>
+    <p>div안의 p태그 1번</p>
+    <p>div안의 p태그 2번</p>
+    <section>
+        <p>div안의 section태그 안의 p태그 3번</p>
+    </section>
+</div>
+<div>
+    <span>div안의 span태그 1번</span><span>div안의 span태그 2번</span>
+    <section><span>div안의 section태그 안의 span태그 3번</span></section>
+</div>
+
+<p>body태그안의 p태그 4번</p>
+<p>body태그안의 p태그 4번</p>
+<br><br>
+</body>
+</html>

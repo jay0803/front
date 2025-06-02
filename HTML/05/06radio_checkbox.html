@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>신청 과목</legend>
+            <p>이 달에 신청할 과목을 선택하세요(1과목만 가능)</p>
+            <label>회화
+                <input type="radio" name="subject" value="speaking"><!--체크 안하고 전송시 null값 보냄-->
+            </label>
+            <label>문법
+                <input type="radio" name="subject" value="grammer">
+            </label>
+            <label>작문
+                <input type="radio" name="subject" value="writing">
+            </label>
+            </fieldset>
+
+        <fieldset>
+            <legend>메일링</legend>
+            <p>메일로 받고 싶은 뉴스 주제를 선택해 주세요(복수 선택 가능)</p>
+            <label>
+                <input type="checkbox" name="mailing" value="news"><!--체크 안하고 전송시 null값 보냄-->
+            </label>해외 단신
+            <label>
+                <input type="checkbox" name="mailing" value="dialog">
+            </label>5분 회화
+            <label>
+                <input type="checkbox" name="mailing" value="pops">
+            </label>모닝팝스
+        </fieldset>
+
+        <fieldset>
+            <legend>과 티셔츠 설문</legend>
+            <p>올해 과 티(T)를 만드려고 합니다. 원하는 색상을 추천해 주세요.</p>
+            <label>선호색상
+                <!--<input type="color" name="color">-->
+                <input type="color" name="color" value="#00ff00">
+            </label>
+            <input type="submit">
+        </fieldset>
+    </form>
+</body>
+</html>

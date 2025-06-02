@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>a Tag</title>
+</head>
+
+<body>
+    <p>아래의 글씨를 클릭하면 네이버로 이동됩니다.</p>
+    <!--
+    target 속성값 : 
+    _self (디폴트) : 현재 창에서 새로운 페이지를 보여주세요.
+    _blank :  새창에서 새로운 페이지를 보여주세요.
+    _parent : 나의 부모창에서 새로운 페이지를 보여주세요.(현재 크롬에서 적용불가)
+    _top : 나의 최고 조상창에서 새로운 페이지를 보여주세요. (현재 크롬에서 적용불가)
+
+    **현재는 팝업창을 사용하지 말라고 권장하고 있어, 팝업창에 대한 규제가 많아
+    _self, _blank이외에는 다른 속성은 제대로 적용되지 않는다.
+    IE에서나 낮은 버전의 브라우저에서만 동작됨.
+    -->
+    
+    <h1>a태그의 target 속성값</h1>
+    <a href="https://www.naver.com/"><h1>네이버 Links</h1></a>
+    <h1><a href="https://www.naver.com/" target="_blank">네이버 Links</a></h1>
+    <h2><a href="00_aTag01.html" target="_blank">blank</a></h2>
+    <h2><a href="https://www.daum.net/" target="_self">self</a></h2>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form 요소</title>
+    <style>
+        form{border:1px solid #000000;padding:5px;}
+    </style>
+</head>
+<body>
+    <h2>form 태그들</h2>
+    <!--action속성, label 요소, input요소-->
+    <form>
+        <!--
+        action속성의 기본값: 자기자신의 페이지경로
+        method속성의 기본값: GET
+        -->
+        <!--form action="01form.html" method="GET"-->
+        <!--form action="form01.html" method="POST"-->
+        <label for="firstname">First name :</label>
+        <input type="text" id="firstname" name="first1" value="홍">
+        <br><br>
+
+        <label>Last name :
+            <input type="text" name="lastname" value="길동">
+        </label><br><br>
+
+        <label for="mname">Middle name : </label>
+        <input type="text" name="middlename" id="mname" value="중간">
+        <br><br>
+
+        <label for="job">Job : </label>
+        <input type="text" id="job" value="학생"><br><br>
+        <!--<input type="submit" value="가입하기">-->
+        <button type="submit">가입하기</button>
+    </form><br>
+
+    <form action="">
+        <input type="text" name="two1" value="홍"><br>
+        <input type="text" name="two2" value="길동"><br>
+        <input type="text" name="two3" value="중간"><br>
+        <input type="text" name="job" value="학생"><br><br>
+        <button type="submit">가입하기</button>
+    </form>
+
+    
+</body>
+</html>
