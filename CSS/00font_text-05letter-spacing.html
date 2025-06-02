@@ -5,24 +5,14 @@
     <title>Document</title>
     <style>
         h1 {font-size: 40px;}
-        /* 자간: 양수인 경우는 무조건 간격이 넓어짐, 음수인 경우에 간격이 좁아진다 */
+        /* 자간: 양수인 경우는 무조건 간격이 넓어짐, 음수인 경우에 간격이 좁아진다
+        자간의 디폴트값 : 0px */
         /* 글자 사이의 자간: letter-spacing */
-        .letter1 {
-            letter-spacing: 1em;
-        }
-        .letter1r{
-            letter-spacing: 1rem;
-        }
-        /* .letter1r{
-            letter-spacing: 40px;
-        } */
-         .letter2{
-            letter-spacing: 0.5em;
-         }
-         .letter3{
-            /* letter-spacing: 50px */
-            letter-spacing: -5px;
-         }
+        .letter1 { letter-spacing: 1em; }
+        .letter1r{ letter-spacing: 1rem; }
+        /* .letter1r{ letter-spacing: 40px; } */
+         .letter2{ letter-spacing: 0.5em; }
+         .letter3{ /* letter-spacing: 50px */ letter-spacing: -5px; }
          /* 단어자 사이의 자간: word-spacing */
          #letter1 {word-spacing: 0.2em; }
          #letter2 {word-spacing: 0.5em; }
