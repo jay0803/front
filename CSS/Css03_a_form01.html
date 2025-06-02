@@ -3,12 +3,14 @@
 <head>
     <title>form 속성</title>
     <style>
+        /* 블록 레벨 */
         form {
             border: 1px solid #555;
             border-radius: 5px;
             padding: 10px;
         }
 
+        /* 인라인 레벨 */
         input.ipst {
             padding: 12px 20px;
             margin: 8px 0;
@@ -31,6 +33,7 @@
             border: 3px solid #555;
         }
         
+        /* 블록레벨 */
         textarea {
             width: 80%;
             height: 150px;
@@ -45,7 +48,8 @@
     </style>
 </head>
 <body>
-    <form action="background1.html">
+    <form action="background1.html"> 
+        <!-- 블록레벨 -->
         <h1>input요소를 클릭하세요. -배경색 변경</h1>
         <input type="search" id="selsearch" class="ipst" name="uId" placeholder="아이디를 입력하세요">
         <input type="password" name="uPass" id="uPass" class="ipst" placeholder="비밀번호를 입력하세요"><br>
