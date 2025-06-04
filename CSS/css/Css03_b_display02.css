@@ -1,0 +1,16 @@
+        #imgNone>img, #imgHidden>img {
+            width: 200px;
+            height: 100px;
+        }
+        div#imgNone:hover img { 
+            display: block; 
+        }
+        #imgNone img {
+            display: none;
+        }
+        div#imgHidden:hover img {
+            visibility: visible;
+        }
+        #imgHidden img {
+            visibility: hidden;
+        }
