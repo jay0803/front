@@ -1,0 +1,21 @@
+/* 
+저작물명: 은평사가독서체
+출처: https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?wrtSn=13382162&menuNo=200195
+저작권자: 서울 은평구
+*/
+
+
+/* h1#a { font-family: "Audiowide", sans-serif; } */
+h1#a { font-family: "Nanum Pen Script", cursive; }
+h1#b { font-family: "Sofia", sans-serif; }
+h1#c { font-family: "Trirong", serif; }
+.ft { font-family: Copperplate, Papyrus, fantasy; }
+
+@font-face {
+    font-family: makeFont; /* 폰트명 선언하기 */
+    src: url("../font/NanumBrushScript-Regular.ttf");
+}
+
+div#ff {
+    font-family: makeFont; font-weight: bolder;
+}
