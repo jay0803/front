@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a = 10, b = 20, c = 10, f = "20", result;
+        result = a > b;
+        document.write("a: " + a + " ,b: " + b + " ,c: " + c + " ,f: "+ f
+            + "<br>");
+        document.write("a > b : " + result + "<br>");
+
+        result = a < b;
+        document.write("a < b: " + result, "<br>");
+        result = a <= b;
+        document.write("a <= b : " + result, "<br>");
+
+        /*
+        동등연산자 (==) : 자료형 보지 않고 오로지 값으로만 비교. 형변환처리
+        동치연산자 (===): 완전동치연산자라고도 함
+        비교연산자 중에서 같다라는 연산자 종류
+        자료형까지 완전하게 모두 일지하는 값으로 비교
+        */
+        result = b == f;
+        document.write("b == f: " + result, "<br>");
+
+        result = b === f;
+        document.write("b === f: " + result, "<br>");
+
+        result = a != b;
+        document.write("a != b: " + result, "<br>");
+    </script>
+</head>
+<body>
+</body>
+</html>
