@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //숫자형 - Number
+        var box; //undefined
+        //document.write(typeof(box), "<br>");
+        box = 100;
+        box = 30;
+        //document.write(box, "<br>");
+        //document.write(typeof(box), "<br>");
+
+        //문자형
+        box = "50원";
+        document.write(typeof box, "<br>");
+        // NaN : Not A Number
+        /*
+        Number() 생성자 함수: 값을 number 자료형으로 변환해주는 함수
+        */
+        document.write(Number(box), "<br>");
+        document.write(typeof(Number(box)), "<br>");
+
+        //논리형 - Boolean
+        var a = true;
+        var b = false;
+        var c = 10 > 5;
+        //Boolean() 생성자 함수: true, false값을 반환해주는 함수
+        //매개인자값으로 0, null, undefined, '', ""값을 넣을 경우는 false 반환
+        //존재하는 값을 넣을 경우는 true 반환
+        var d = Boolean(2);
+        document.write(a, "<br>");
+        document.write(b, "<br>");
+        document.write(c, "<br>");
+        document.write(d, "<br>");
+
+        var t;
+        document.write("값을 할당받지 못한 상태: " + t, "<br>");
+        t="hello";
+        document.write("값이 초기화된 상태: " + t, "<br>");
+        t = null;
+        //document.write("값이 비워진 상태: " + t, "<br>");
+        //t="";
+        //document,write("값이 빈문자열인 상태: " + t, "<br>");
+
+        //배열 자료형: 요소값의 자료형이 달라도 상관없다.
+        let fruits = ["Banana", 50, false, "Mango"];
+        document.write(
+        fruits[0] + ", " + fruits[1] + ", " + fruits[2] + ", "
+            + fruits[3] + "<br>");
+        //Object.keys(car) => [type, model, color]
+        //Object 자료형: java의 HashMap 자료형과 유사함
+        //java의 Object 자료형과는 다른 개념임
+        //js의 object 자료형 값을 가져오는 방법
+        //형식 1: 객체명.키명
+        //형식 2: 객체명["키명"]
+        //되도록 키명은 문자열로 지정해주세요.
+        const car = {type:"Flat", model:500, color:"white"};
+        document.write(Object.keys(car)[0] + ":" + car.type + "<br>");
+        document.write(Object.keys(car)[1] + ":" + car["model"] + "<br>");
+        document.write(Object.keys(car)[2] + ":" + car.color + "<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
