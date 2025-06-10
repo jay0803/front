@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><title>switch조건문</title></head>
+<body>
+<h2>자바스크립트 if .. else문</h2>
+<script>
+	var a = prompt("1부터 9까지의 숫자를 입력하세요.");
+	var str;
+
+	if(isNaN(Number(a))){
+		alert("숫자가 아닌 값이 입력되었습니다.");
+	}else{
+		if(Number(a) >= 1 &&  Number(a) <= 9){
+			switch(Number(a)){
+				case 1: case 3: case 6: case 7: case 8: str = "은"; break;
+				case 2: case 4: case 5: case 9:  str = "는"; break;
+			}
+			// if (a % 2 != 1) {
+			if (a % 2 != 0) {
+				document.write(a + str + " 홀수<br>");
+			} else {
+				document.write(a + str + " 짝수<br>");
+			}
+		}else{
+			alert("1부터 9까지의 숫자를 입력하세요!!!");
+		}
+	}
+	
+</script></body></html>
