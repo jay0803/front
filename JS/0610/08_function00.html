@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>함수</title>
+    <script>
+        //오류발생 안됨
+        func1(); //호이스팅에 의해 오류 발생안되고 정상 처리됨
+        function func1(){
+            document.write("선언적 함수 1-1<br>");
+        }
+        func1();
+
+        func2();
+        function func2(){
+            document.write("선언적 함수 2 <br>");
+        }
+        func2();
+    </script>
+</head>
+<body>
+    <pre style="border: 1px solid #000;">
+        <span style="font-weight: bolder;">자바스크립트 function 형식</span>
+        <hr>
+        function 함수명(매개변수1, 매개변수2, ...){<br>
+            자바스크립트 코드들; <br>
+            ... <br>
+            (반환문 선택) return 값;
+        }
+        <br>
+    </pre>
+    <script>
+        func1();
+        //호이스팅 영역은 반드시 선언문이 같이 이루어진 script 태그 안에서만 가능함
+        function func1(){
+            document.write("선언적 함수3 <br>");
+        }
+        func1();
+    </script>
+</body>
+</html>
