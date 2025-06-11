@@ -13,13 +13,14 @@
                 };
             }
         };
+        // document.getElementsByClassName("selTag")[i].addEventListener('change')
     </script>
 </head>
 <body>
     <!-- form 태그에 text 입력창과 select 태그 쌍으로 묶어서 5묶음 만드세요
      input 태그에 동일한 클래스명 => ipTag
      select 태그에 동일한 클래스명 => selTag
-     input, select 태그 짝으로 묶은 한 개 단위씩만 한줄 한줄 나열 -->
+     input, select 태그 짝으로 묶은 한 개 단위씩만 한줄 한줄 나열되도록 처리 -->
     <form>
         <div>
             <input type="text" class="ipTag">
@@ -66,6 +67,23 @@
                 <option value="OUTPUT">OUTPUT</option>
             </select>
         </div>
+
+        <input type="text" name="uid" id="uid"><br>
+        <span id="uidChk">아이디입력</span>
+        <style>
+            #uidChk {display: none; color: red;} 
+        </style>
+        <input type="submit" value="전송">
     </form>
+    <script>
+        document.forms[0].onsubmit = function(){
+            if (this.uid.value == '' || this.uid.value == null){
+                this.uid.nextElementSibling.nextElementSibling.
+                style.display = "inline";
+                return false;
+            } 
+            return true;
+        };
+    </script>
 </body>
 </html>

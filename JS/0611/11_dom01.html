@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<!-- 
+DOM(Document Object Model)이란 : 
+- 웹 페이지의 구조(HTML)를 자바스크립트 객체처럼 다룰 수 있도록 만든 모델을 말한다.
+- HTML 태그 하나하나를 객체(Node)로 표현하고, 이 객체들을 트리(Tree) 구조로 표현한 것을 DOM이라함.
+
+대표DOM객체들 : 
+- document : HTML 문서 전체를 나타내는 객체 (DOM의 시작점)
+- 요소객체명 : 개별 HTML 요소를 나타냄 (<div>, <p> 등)
+- node : DOM 트리의 모든 구성 요소 (태그, 텍스트 등)
+- parentNode : 부모 노드(모든 노드가 해당 됨.)
+- childNodes : 자식 노드 목록 (NodeList, 모든 노드가 해당됨.)
+- firstChild, lastChild : 첫/마지막 자식 노드(모든 노드)
+- nextSibling, previousSibling : 형제 노드(모든 노드)
+
+- parentElement : 부모 노드(요소=태그 노드만.)
+- children : 자식 노드 목록 (자식태그 노드만)
+- firstElementChild, lastElementChild : 첫/마지막 자식 노드(태그만)
+- nextElementSibling, previousElementSibling : 형제 노드(태그만)
+- style : 인라인 스타일 조작 (element.style.color = "red")
+- clientHeight, offsetTop 등 : 위치와 크기 정보
+
+대표 DOM함수들 : 
+1. HTML 요소 선택 관련 함수들
+- getElementById(id) : ID로 요소 1개 찾기
+- getElementsByClassName(class) : 클래스명으로 여러 요소 찾기 (HTMLCollection 반환)
+- getElementsByTagName(tag) : 태그 이름으로 여러 요소 찾기
+- querySelector(css) : CSS 선택자 방식으로 요소 1개 찾기
+- querySelectorAll(css) : CSS 선택자로 여러 요소 찾기 (NodeList 반환)
+
+2. 요소 생성, 삽입, 삭제 관련 함수들
+- createElement(tag) : 새로운 요소 생성
+- createTextNode(text) : 텍스트 노드 생성
+- appendChild(node) : 자식 요소로 추가
+- removeChild(node) : 자식 요소 제거
+- replaceChild(newNode, oldNode) : 기존 노드 교체
+- insertBefore(newNode, referenceNode) : 특정 요소 앞에 삽입
+
+3. 이벤트 관련 함수들
+- addEventListener(type, listener) : 이벤트 핸들러 등록
+- removeEventListener(type, listener) : 이벤트 핸들러 제거
+
+4. 속성/내용 조작관련 함수들
+- 엘리먼트객체명.innerHTML : 요소 내부 HTML 읽기/쓰기
+- 엘리먼트객체명.textContent : 텍스트 내용 읽기/쓰기
+- 엘리먼트객체명.setAttribute(name, value) : 속성 설정
+- 엘리먼트객체명.getAttribute(name) : 속성 값 읽기
+- 엘리먼트객체명.removeAttribute(name) : 속성 제거
+- 엘리먼트객체명.classList.add/remove/toggle() : 클래스 조작
+
+-->
+</head>
+
+<body>
+	<button type="button" onclick="EvntFnc()">이벤트적용</button>
+	<p id="intro"><a href="#">Hello World!</a></p>
+	<p id="demo"></p>
+	<p id="demo2"></p>
+
+	<script>
+		function EvntFnc() {
+			//pid => <p id="intro"><a href="#">Hello World!</a></p>
+			var pid = document.getElementById("intro");
+			//<p id="demo"><a href="#">Hello World!</a></p>
+			document.getElementById("demo").innerHTML = pid.innerHTML;
+			//<p id="demo2">Hello World!</p>
+			document.getElementById("demo2").innerHTML = pid.innerText;
+		}
+	</script>
+
+	<div id="paDiv">
+        <p id="fir">첫째</p> -> 
+        첫줄 텍스트
+        <p id="sec">둘째</p>
+        둘째줄 텍스트
+        <p id="thi">셋째</p>
+        셋째줄 텍스트
+        <p id="for">넷째</p>
+        넷째줄 텍스트
+        <p id="fif">다섯째</p>
+    </div>
+    <script>
+        let selTag = document.getElementById("thi");
+        console.log(selTag.previousSibling);
+        console.log(selTag.previousElementSibling.previousElementSibling);
+        console.log(selTag.nextSibling);
+        console.log(selTag.nextElementSibling);
+
+        let paTag = document.getElementById('paDiv');
+        console.log(paTag.childNodes);
+        console.log(paTag.children);
+    </script>
+</body>
+
+</html>
