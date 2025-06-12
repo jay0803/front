@@ -21,7 +21,7 @@
      input 태그에 동일한 클래스명 => ipTag
      select 태그에 동일한 클래스명 => selTag
      input, select 태그 짝으로 묶은 한 개 단위씩만 한줄 한줄 나열되도록 처리 -->
-    <form>
+    <!-- <form>
         <div>
             <input type="text" class="ipTag">
             <select class="selTag">
@@ -84,6 +84,15 @@
             } 
             return true;
         };
+    </script> -->
+    <button type="button" id="btn">버튼</button>
+    <!-- 위의 버튼을 클릭했을 때 pic_bulboff.gif 이미지가 보이도록 html 태그 작성 및 스크립트 코드 작성 -->
+    <br><img>
+    <script>
+        document.getElementById("btn").addEventListener('click', function(){
+            document.getElementsByTagName("img")[0].src = "../img/pic_bulboff.gif";
+        });
     </script>
+
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery/3.7.0/jquery.js"></script>
+    <script>
+        //제이쿼리는 선택자를 사용하기 위해서는 실행할 수 있는 환경이 미리 조성되어 있어야만 한다.
+        //엘리먼트나 해당 객체가 생성되기 전이면 즉시실행함수로 묶어서 처리
+        //엘리먼트나 해당 객체가 생성된 후면 그 엘리먼트 후에 코드 기술하기
+        jQuery(document).ready(function(){
+            alert("$(document).ready ALERT 경고창");
+        });
+
+        $(function(){
+            alert("$(function()) ALERT 경고창");
+        });
+
+        (function(){
+            alert("(function)의 ALERT 경고창");
+        })();
+
+        window.onload = function(){
+            alert("window.onload ALERT 경고창");
+        };
+    </script>
+</head>
+<body>
+    본문 내 알림 글자를 띄웁니다.
+</body>
+</html>

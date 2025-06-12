@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        var koGreeting = {
+            greeting: "안녕",
+            name: "홍길동",
+            sayHello: function(){
+                return this.greeting + ", " + this.name;
+            }
+        };
+
+        var enGreeting = {
+            greeting: "Hello",
+            name: "HongKilDong"
+        };
+
+        //call(): 함수의 호출(context)을 명시적으로 지정할 수 있도록 도와주는 내장 메서드
+        console.log(koGreeting.sayHello());
+        console.log(koGreeting.sayHello.call(enGreeting));
+    </script>
+</head>
+<body>
+</body>
+</html>
