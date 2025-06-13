@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery/3.7.0/jquery.js"></script>
+    <script>
+        /*
+        is("탐색선택자"): 선택자의 상태에 따라 boolean값을 반환함
+        탐색선택자로 올 수 있는 값
+        :checked - 체크된 상태인지
+        :selected - 선택된 상태인지
+
+        :visible - 보이는 요소인지
+        :hidden - 숨겨진 요소인지
+
+        :visible, :hidden 탐색자 :display: none; 속성만 감춰진 속성으로 인지함
+        */
+       function ent(){
+        //:hidden탐색선택자: 엘리먼트의 속성이 display: none인 태그만 인지함
+        //show() 함수: display: none; 태그만 인지함
+        $("#wrap p:hidden").css({ "display": "block", "background":"#ff0"});
+        $("#wrap p").show();
+        //$("#wrap p").css('visibility', 'visible');
+
+        var result_1 = $("#wrap p:eq(1)").is(":visible");
+        console.log(`result_1: ${result_1}`);
+        var result_2 = $("#wrap p:eq(2)").is(":hidden");
+        console.log(`result_2: ${result_2}`);
+
+        var z1 = $("#course").val();
+        //var z1 = $("#course : selected").val();
+        var z1 = $("#zone1 : selected").val();
+        console.log("Z1: ", z1);
+
+        var z2 = $("#zone2 :checked").val();
+        //var z2 = $("input[type=checkbox]:checked").val();
+        console.log("Z2: ", z2);
+
+        var z3 = $("#zone3 :checked").val();
+        //var z3 = $("input[name=gender]:checked").val();
+        console.log("Z3: ", z3);
+
+        var result_3 = $("#hobby1").is(":checked");
+        console.log(`result_3: ${result_3}`);
+
+        var $goLink = $('#amove');
+        $goLink.attr('href', "https://www.google.com/");
+
+        $goLink = $('.link');
+        console.log($goLink.attr('href'));
+
+        $("button").attr('onclick', 'rel()').text('해제');
+       }
+
+       function rel(){
+        $("#wrap p").eq(1).hide();
+        $("#course option:eq(1)").attr('selected', true);
+        $("#zone2").attr('checked', false);
+        $("#zone3").attr('checked', false);
+        
+        /*
+        prop(): JavaScript의 프로퍼티(property)를 핸들링 함
+        동적인 속성을 제어
+        prop("속성명") -- 프로퍼티는 JavaScript에서 사용하는 속성정보를 가져오므로 HTML의 정보와 일치하기도 하고 일치하지 않을 수도 있다.
+        prop("속성명", "속성값") - 해당 요소의 속성 정보를 속성값으로 설정(변경)한다.
+        */
+       console.log($("#course").prop('tagName'),"태그");
+       $("#course option:eq(1)").prop('selected',true);
+       $('input[type="checkbox"]').prop('checked',false);
+       $("input[name=\"gender\"]").prop('checked',false);
+       }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <p>내용1</p>
+        <p style="display: none;">내용 2-1</p>
+        <p style="visibility: hidden;">내용 2-2</p>
+        <p>내용 3</p>
+    </div>
+
+    <form action="#">
+        <p id="zone1">
+            <select name="course" id="course">
+                <option value="opt1">옵션 1</option>
+                <option value="opt2" selected>옵션 2</option>
+                <option value="opt3">옵션 3</option>
+            </select>
+        </p>
+        <p id="zone2">
+            <input type="checkbox" name="hobby1" id="hobby1" value="독서">
+            <label for="hobby1">독서</label>
+
+            <input type="checkbox" name="hobby2" id="hobby2" value="자전거" checked>
+            <label for="hobby2">자전거</label>
+            
+            <input type="checkbox" name="hobby3" id="hobby3" value="등산">
+            <label for="hobby3">등산</label>
+        </p>
+        <p id="zone3">
+            <input type="radio" name="gender" id="gender1" value="male">
+            <label for="gender1"> 남성 </label>
+
+            <input type="radio" name="gender" id="gender2" value="female" checked>
+            <label for="gender2"> 여성 </label>
+        </p>
+    </form>
+    <div id="aDiv">
+        <a href="#wrap" id="link">버튼1</a>
+        <a href="https://www.naver.com" class="link">버튼2</a>
+
+        <a href="#wrap" id="amove">이동1</a>
+        <a href="https://www.naver.com" class="amove">이동2</a>
+    </div><br>
+    <button type="button" onclick="ent()">클릭</button>
+    <br><br>
+
+    <div id="imgDiv">
+      <img title="img_girl" alt="img_girl">
+      <img title="cute_dog" alt="cute_dog">
+      <img title="pic_trulli" alt="pic_trulli">
+      <br><br>
+      <button onclick="btn()">클릭</button>
+   </div>
+   <script>
+      function btn() {
+         $("img").attr({ width: "100px", height: "100px" });
+         $("img").attr("src", function () {
+            return "./img/" + this.title + ".jpg";
+         });
+
+         $("img").attr("title", function (index) {
+            return index + "번 img 엘리먼트 타이틀은 " + this.title;
+         });
+      }
+   </script>
+
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

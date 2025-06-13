@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title> 탐색 선택자 </title>
+	<script src="./jquery/3.7.0/jquery.js"></script>
+	<style>
+		#menu li:nth-of-type(even) {
+			background-color: yellow;
+		}
+	</style>
+	<script>
+		$(function () {
+            //nth-of-type(n): 1부터 시작하는 요소 순서 기준
+			$("#menu li:nth-of-type(even)").css({ "background-color": "red" });
+			$("#menu li:nth-of-type(odd)").css({ "background-color": "green" });
+
+            //:even, :odd => 제이쿼리 탐색선택자 중 하나 (인덱스 기준)
+            //0부터 시작하는 인덱스 기준 (0=짝수, 1=홀수)
+			$("#menu li:even").css({ "background-color": "red" });
+			$("#menu li:odd").css({ "background-color": "green" });
+
+			// eq(인덱스번호(0부터)) : 인덱스번호에 해당되는 요소 선택
+            // 둘 다 0부터 시작하는 3번째 요소(내용3)를 선택
+            // .eq()는 함수형 문법, :eq(n)는 선택자 방식이지만 동작은 동일
+			$("#menu1 li").eq(2).css({ "background-color": "yellow" });
+			$("#menu1 li:eq(2)").css({ "background-color": "red" });
+
+			// lt(인덱스번호) : 인덱스 번호보다 작은, 전 요소 모두 선택(자신 제외)
+            // 0, 1번째 요소 → 내용1, 내용2
+			$("#menu1 li:lt(2)").css({ "background-color": "aqua" });
+
+			// gt(인덱스번호) : 인덱스 번호보다 큰, 후 요소 모두 선택(자신 제외)
+            // 3, 4번째 요소 → 내용4, 내용5
+			$("#menu1 li:gt(2)").css({ "background-color": "hotpink" });
+
+			// nth-child(번호n) , nth-of-type(번호n) : 번호는 1부터. 번호에 해당되는 요소를 선택함. 
+			// 인덱스는 맨 처음 요소를 0부터 세지만, 번호는 맨 처음 요소를 1부터 셈.
+			// n은 인덱스와 동일하게 0부터 셈. 0부터 1씩 증가하는 증가값 변수임.
+			// nth-child : 정방향(위-> 아래로)
+			// nth-last-child : 역방향(아래 -> 위로)
+			$("#menu1 li:nth-child(1)").css({ "background-color": "yellow" }); //내용1
+			$("#menu1 li:nth-child(2n)").css({ "border": "2px dashed red" }); //짝수 번째 자식 = 내용2, 내용4
+			$("#menu1 li:nth-last-child(2)").css({ "background-color": "aqua" }); //마지막에서 두 번째 = 내용4
+			// 페이지 내 모든 짝수 번째 li: 테두리 적용
+            // 전체 li 중 끝에서 두 번째 항목: 배경 aqua (주의: 여러 ul을 합쳐서 판단)
+            $("li:nth-child(2n)").css({ "border": "2px dashed red" });
+			$("li:nth-last-child(2)").css({ "background-color": "aqua" });
+
+		}); 
+	</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<h1>탐색 선택자</h1>
+		<ul id="menu">
+			<li>내용1</li>
+			<li>내용2</li>
+			<li>내용3</li>
+			<li>내용4</li>
+		</ul>
+	</div>
+	<div id="wrap1">
+		<h1>탐색 선택자</h1>
+		<ul id="menu1">
+			<li>내용1</li>
+			<li>내용2</li>
+			<li>내용3</li>
+			<li>내용4</li>
+			<li>내용5</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title> 탐색 선택자 </title>
+	<script src="jquery/3.7.0/jquery.js"></script>
+	<script>
+$(function () {
+	$("input[name=chk]").click(function(){
+		if($(this).is(":checked")==true) {
+			console.log($(this).attr("id")+"요소는 체크된 상태입니다.");
+		}else{
+			console.log($(this).attr("id")+"요소는 해제된 상태입니다.");
+		}
+
+		let cnt = 0;
+	
+		$.each($("input[name=chk]"), function(){
+			if($(this).is(":checked")) cnt++;
+		});
+
+		if(cnt == $("input[name=chk]").length) {
+			$("#allchk").prop("checked", true);
+		} else {
+			$("#allchk").prop("checked", false);
+		}
+	});
+
+	$("input[name=allchk], label[for=allchk]").click(function () {
+		var allchk;
+		if (this.tagName == 'INPUT') { 
+			allchk = $(this).is(":checked");
+		} else { 
+			allchk = $(this).prev().is(":checked");
+		}
+
+		$.each($("input[name=chk]"), function (i, o) {
+			console.log('i: ', i, 'o: ', o);
+			$(this).prop("checked", allchk);
+		});
+	});
+});
+	</script>
+</head>
+
+<body>
+	<div id="outer_wrap">
+		<h1>is(탐색자)</h1>
+		<section id="inner_2">
+		<h2>폼 태그 영역</h2>
+		<p>
+			<input type="checkbox" name="allchk" id="allchk">
+			<label for="allchk">모두체크</label><br>
+
+			<input type="checkbox" name="chk" id="chk1">
+			<label for="chk1">체크1</label>
+			<input type="checkbox" name="chk" id="chk2">
+			<label for="chk2">체크2</label>
+			<input type="checkbox" name="chk" id="chk3">
+			<label for="chk3">체크3</label>
+			<input type="checkbox" name="chk" id="chk4" checked>
+			<label for="chk4">체크4</label>
+			<input type="checkbox" name="chk" id="chk5">
+			<label for="chk5">체크5</label>
+		</p>
+	</section>
+	</div>
+</body>
+
+</html>

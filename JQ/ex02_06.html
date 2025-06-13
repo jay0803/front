@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title> 선택자 </title>
+	<script src="./jquery/3.7.0/jquery.js"></script>
+	<script>
+		$(function () {
+			var style_1 = {
+				"background-color": "aqua",
+				"border": "2px solid #f00"
+			};
+			var style_2 = {
+				"background-color": "yellow",
+				"border": "2px dashed #f00"
+			};
+			var style_3 = { "background-color": "red" };
+
+			var style_4 = { 
+				"background-color": "green", 
+				"border": "2px solid #555" 
+			};
+
+			// prevAll() : 바로 이전(앞, 형들) 요소들 모두 선택.
+			//.txt 클래스를 기준으로 앞에 있는 형제 요소들 중 <h1>만 선택
+			//즉 #wrap 안의 <h1>이 대상
+			$(".txt").prevAll("H1").css(style_1);
+
+			// nextAll() : 바로 이후(뒤, 동생들) 요소들 모두 선택.
+			// .txt 기준으로 뒤에 있는 모든 형제 요소들 선택(내용3, 내용4) 
+			$(".txt").nextAll().css(style_2);
+
+			//siblings() : 나를 제외한 다른 형제들 모두 선택.
+			// $("#wrap1 > .txt1").siblings().css(style_3);
+			// #wrap1 안의 .txt1 요소의 형제 중 <p> 태그만 선택
+			// 자기 자신은 제외 (즉, .txt1 제외한 나머지 <p>)	
+			$("#wrap1 > .txt1").siblings('P').css(style_3);
+
+			// let ps = document.getElementsByTagName('p');
+			// $(ps).css({ "background-color": "red" });
+
+			// $(“선택자”).prevUntil(“형요소명”) :  선택자는 기준이되는 요소를 기술할 것
+			// 선택자 요소부터 지정한 형 요소까지 그 사이에 있는 요소들만 선택.(나와 기준점태그는 미포함)
+			//.txt3 기준으로 위쪽(이전) 요소 중 .title 전까지의 형제 요소만 선택
+			// 본인과 .title은 포함하지 않음
+			// 적용 대상: 내용1, 내용2
+			$(".txt3").prevUntil(".title").css(style_4);
+
+			// $(“선택자”).nextUntil(“동생요소명”) :  선택자는 기준이되는 요소를 기술할 것
+			// 선택자 요소부터 지정한 동생 요소까지 그 사이에 있는 요소들만 선택.(나와 기준점태그는 미포함)
+			//.txt3 기준으로 아래쪽(이후) 요소 중 .txt6 전까지 선택
+			// 본인과 .txt6은 포함 안 됨
+			// 적용 대상: 내용4, 내용5
+			$(".txt3").nextUntil(".txt6").css(style_4);
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<h1>인접 관계 선택자</h1>
+		<p>내용1</p>
+		<p class="txt">.txt 내용2</p>
+		<p>내용3</p>
+		<p>내용4</p>
+	</div>
+	<div id="wrap1">
+		<h1>인접 관계 선택자</h1>
+		<p>내용1</p>
+		<p class="txt1">.txt1 내용2</p>
+		<p>내용3</p>
+		<p>내용4</p>
+	</div>
+
+	<div>
+		<h1 class="title">선택자</h1>
+		<p>내용1</p>
+		<p>내용2</p>
+		<p class="txt3">.txt3 내용3</p>
+		<p>내용4</p>
+		<p>내용5</p>
+		<p class="txt6">.txt6 내용6</p>
+	</div>
+</body>
+
+</html>

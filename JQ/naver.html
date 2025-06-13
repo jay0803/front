@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    input:focus {
+      border-color: #66cc66;
+      outline: none;
+    }
+
+    .error {
+      border-color: red !important;
+      color: red !important;
+    }
+
+    .helper-text {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .helper-text.error {
+      color: red;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #1ae94e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .radio-group-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 0;
+    }
+
+    .radio-box input[type="radio"] {
+      display: none;
+    }
+
+    .radio-box label {
+      display: inline-block;
+      padding: 10px 15px;
+      border: 2px solid gray;
+      border-radius: 4px 0 0 4px;
+      cursor: pointer;
+      user-select: none;
+      min-width: 80px;
+      text-align: center;
+      margin: 0;
+    }
+
+    .radio-box label + input[type="radio"] + label {
+      border-left: none;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .radio-box input[type="radio"]:checked + label {
+      background-color: #e0f0e0;
+      border-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="signupForm" action="/register" method="get">
+    <h2>회원가입</h2>
+
+    <div class="input-group">
+      <input type="text" id="userid" name="userid" placeholder="아이디 입력">
+      <div class="helper-text" id="useridHelp">아이디는 영문자, 숫자, 특수문자(_) 조합으로 6~20자 이내로 입력해주세요.</div>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" name="password" placeholder="비밀번호 입력">
+      <div class="helper-text" id="passwordHelp">비밀번호는 영문, 숫자, 특수문자 조합으로 6~20자 이내로 입력</div>
+    </div>
+
+    <div class="input-group">
+      <div style="display: flex; gap: 5px;">
+        <input type="text" name="email1" placeholder="이메일 입력">
+        @
+        <input type="text" name="email2" id="email2" placeholder="도메인">
+      </div>
+      <select id="emailDomainSelect">
+        <option value="">직접입력</option>
+        <option value="naver.com">naver.com</option>
+        <option value="gmail.com">gmail.com</option>
+        <option value="daum.net">daum.net</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="name" name="name" placeholder="이름 입력">
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="birth" name="birth" placeholder="생년월일 (19900101)">
+    </div>
+
+    <div class="input-group">
+      <select name="carrier">
+        <option value="">통신사 선택</option>
+        <option value="SKT">SKT</option>
+        <option value="KT">KT</option>
+        <option value="LGU+">LG U+</option>
+      </select>
+    </div>
+
+    <div class="radio-group-wrap">
+      <div class="radio-group">
+        <div class="radio-box">
+          <input type="radio" id="male" name="gender" value="남성">
+          <label for="male">남자</label>
+        </div>
+        <div class="radio-box">
+          <input type="radio" id="female" name="gender" value="여성">
+          <label for="female">여자</label>
+        </div>
+      </div>
+      <div class="radio-group">
+        <div class="radio-box">
+          <input type="radio" id="local" name="nationality" value="내국인">
+          <label for="local">내국인</label>
+        </div>
+        <div class="radio-box">
+          <input type="radio" id="foreigner" name="nationality" value="외국인">
+          <label for="foreigner">외국인</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="phone" name="phone" placeholder="전화번호 (숫자만)">
+    </div>
+
+    <button type="submit">회원가입</button>
+  </form>
+
+  <script>
+    window.onload = function () {
+      document.getElementById("emailDomainSelect").onchange = function () {
+        document.getElementById("email2").value = this.value;
+      };
+
+      const allInputs = document.querySelectorAll("input[type='text'], input[type='password']");
+      const helperTexts = document.querySelectorAll(".helper-text");
+
+      allInputs.forEach(input => {
+        input.addEventListener("focus", function () {
+          input.classList.remove("error");
+          helperTexts.forEach(h => h.classList.remove("error"));
+        });
+
+        input.addEventListener("blur", function () {
+          if (input.value.trim() === "") {
+            input.classList.add("error");
+            helperTexts.forEach(h => h.classList.add("error"));
+          }
+        });
+      });
+    };
+  </script>
+
+</body>
+</html>

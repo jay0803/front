@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!--조상-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        /*html, body {padding:0; margin:0;}*/
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <script>
+        $(function(){
+            //parent(): 부모 선택자, 해당 요소의 부모 요소만 선택함
+            $("#list_1").css('font-size', '32px').parent().css("border", "2px dashed #f00");
+
+            $(".txt1").parents().css({
+                "border": "5px solid red",
+                "padding": "10px"
+            });
+
+            // $(".txt2").parents("section").css({
+            //     "border": "5px solid red",
+            //     "padding": "10px"
+            // });
+
+            //$("선택자").closest("조상요소"):
+            // 해당 요소의 조상(부모 포함) 요소들 중 가장 가까운 div요소를 선택함
+
+            $(".txt1").closest("div").css({
+                "background-color" : "pink",
+                "border": "2px solid #f00",
+                "padding" : "10px"
+            });
+        });
+    </script>
+</head>
+<body> <!--조상-->
+    <h1>인접 관계 선택자</h1>
+    <ul id="wrap">
+        <li>리스트1
+            <ul>
+                <li id="list_1">리스트 1-1</li>
+                <li>리스트 1-2</li>
+            </ul>
+        </li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+    </ul>
+
+    <h1 class="title">선택자</h1>
+    <div id="ans"> <!--조상-->
+        <div id="pa"> <!--조상-->
+            <section> <!--조상-->
+                <div> <!--조상 DIV, SECTION, DIV#pa, DIV#anc, BODY, HTML-->
+                    <p class="txt1">내용</p>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <p class="txt2">내용</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

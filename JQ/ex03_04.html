@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>탐색 선택자(selector)</title> 
+<script src="./jquery/3.7.0/jquery.js"></script>
+<style>
+	p.on {background-color: yellow;}
+</style>
+<script>
+function exeFnc(){	
+	// removeClass('클래스명') =>js classList.remove('클래스명');
+	// addClass('클래스명') =>js classList.add('클래스명');
+	/*
+	클래스가 active인 <p> 선택 (즉, "내용2"), active 제거, on 추가 → yellow 배경 적용 (CSS에서 정의됨)
+	기존 클래스 전부 지우고 class="on"만 설정
+	다시 on 추가 (이미 있을 수도 있음)
+	*/
+	$(".wrap_1 p.active").removeClass("active").addClass("on");
+	$(".wrap_1 p.active").attr("class","on");
+	$(".wrap_1 p.active").addClass("on");
+
+	/* 
+	attr 상태가 변경되지 않는 속성을 설정할 때 사용
+	attr("속성명", "속성값") : 해당 요소에 해당 속성과 값을 설정한다. =>js  setAttribute()
+	attr("속성명") : 해당 요소에 해당 속성의 값을 가져오라는 의미임. 
+	=>js  getAttribute() 
+	*/
+	//attr("class") => 문자열값으로 반환
+	console.log($(".wrap_1 p.active").attr("class"));
+	//classList => 배열객체로 반환 
+	// console.log(document.querySelector('.wrap_1 p.active').classList);
+	
+	//.wrap_1의 3번째 <p> (2번 인덱스) 내의 <a> 태그를 선택
+	// href 속성을 "http://www.naver.com"으로 변경
+	$(".wrap_1 p:eq(2) a").attr("href","http://www.naver.com");
+
+	//자바스크립트의 value속성객체와 동일
+	//val("값") : 해당 요소에 값을 설정.
+	//val() : 해당 요소에 값을 가져옴.
+	// 4번째 <p>의 <input> 값을 "Korea"로 설정 후, alert로 출력
+	// 결과: "Korea" 출력됨
+	$(".wrap_1 p:eq(3) input").val("Korea");
+	alert($(".wrap_1 p:eq(3) input").val());
+
+	//after("요소") : 해당 요소 뒤에(바로 동생으로) 추가할 요소(html형태)를 넣는다.
+	$(".wrap_2 p:eq(1)").after("<p>After(추가1)</p>");
+
+	//before("요소") : 해당 요소 앞에(바로 형으로) 추가할 요소(html형태)를 넣는다.
+	$(".wrap_2 p:eq(1)").before("<p>Before(추가2)</p>");
+
+	//unwrap() :선택한 요소의 부모 요소를 삭제한다. => <div>가 사라짐
+	//wrapInner() : 선택한 요소의 자식 요소를 감싼다. => 각 <p>안의 내용을 <strong>으로 감쌈
+	$(".wrap_3 p").unwrap();
+	$(".wrap_3 p").unwrap().wrapInner("<strong>");
+
+	//실행 후 버튼이 사라짐 → 한 번만 실행 가능
+	$('button').hide();
+}
+</script></head><body>
+	<div class="wrap_1">
+		<p>텍스트1</p>
+		<p class="active">내용2</p>
+		<p><a href="#">네이버</a></p>
+		<p><input type="text" value="Hello"></p>
+	</div>
+	<div class="wrap_2"> 
+		<p>내용5</p>
+		<p>내용6</p>
+	</div>
+	<div class="wrap_3">
+		<div>
+			<p>내용7</p>
+			<p>내용8</p>
+		</div>
+	</div><br><br>
+	<button type="button" onclick="exeFnc()">제이쿼리 적용하기</button>
+</body>
+</html>
