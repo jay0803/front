@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>
+<script src="jquery/3.7.0/jquery.js"></script>
+<style>
+	body{font: 12pt "Malgun Gothic", "맑은고딕",sans-serif;} 
+	.btn{font-size: 12pt;}
+</style>
+<script>
+	$(function() {
+		//1. 초기 설정
+		//기본 글자 크기 12pt
+		var fSize = 12; 
+	
+		//2. 이벤트 바인딩
+		// .zBtn 안에 있는  .btn 클래스를 가진 버튼들에 click 이벤트를 연결
+		// 클릭하면 zInOut() 함수 실행
+		$(".zBtn .btn").on("click", zInOut);
+		
+		//3.글자 크기 조절 함수: zInOut()
+		//$(this).hasClass(...): 현재 클릭한 버튼이 어떤 클래스인지 확인
+		//return false : 특정 조건을 만족하면 함수 종료 (최소/최대 범위 제한)
+		//text(): <p class="fontSize"> 에 현재 폰트 크기를 표시
+		//css({...}): 실제로 body, select, 버튼 등이 폰트 크기를 변경
+		function zInOut( ) {
+			if($(this).hasClass("zOut")){
+				if(fSize<=8) return false;
+				fSize--;
+			} 
+			else if($(this).hasClass("zIn")){
+				if(fSize>=50) return false;
+				fSize++;
+			} 
+			else { fSize = 12; }
+			$(".fontSize").text(fSize + "pt");
+
+			/*속성명:
+			객체로 사용시 -(대시)제거 카멜기법으로 표기.
+			css속성명 그대로 사용하는 경우는 따옴표로 묶어줌.*/
+			$("body").css({'font-size':fSize + "pt"});
+			$("#rel_site, #rel_site option").css({'font-size':fSize + "pt"});
+			$(".btn").css({'font-size':fSize + "pt"});
+		}
+	});
+</script></head><body>
+	<p class="zBtn">
+		<button class="btn zOut">-</button>
+		<button class="btn originBtn">100%</button>
+		<button class="btn zIn">+</button>
+	</p>
+	<p class="fontSize">12pt</p>
+
+	<div id="wrap">
+		영어 입숨이나 한글 입숨으로 조금 긴 문장을 만들어 붙여 넣으세요. 
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		Maecenas feugiat consectetur nibh, ut luctus urna placerat non. 
+		Phasellus consectetur nunc nec mi feugiat egestas. 
+		Pellentesque et consectetur mauris, sed rutrum est. 
+		Etiam odio nunc, ornare quis urna sed, fermentum fermentum augue. 
+		Nam imperdiet vestibulum ipsum quis feugiat. 
+		Nunc non pellentesque diam, nec tempor nibh. 
+		Ut consequat sem sit amet ullamcorper sodales.
+	</div> 
+	<select id="rel_site">
+		<option value="">사이트 선택</option>
+		<option value="www.google.com">구글</option>
+		<option value="www.naver.com">네이버</option>
+		<option value="www.daum.net">다음</option>
+	</select><br>
+
+	<input type="checkbox" name="allchk" id="allchk">
+	<label for="allchk">모두체크</label>
+</body>
+</html>

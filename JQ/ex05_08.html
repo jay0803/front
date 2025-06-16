@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>속성</title>
+<script src="http://code.jquery.com/jquery-3.7.0.js"></script>
+<style>
+	img { width: 140px; height: 120px; cursor: pointer;}
+</style>
+<script>
+	$(function() {
+		/*
+		해당 엘리먼트의 width, height를 변경하는 함수
+		width(숫자값 또는 문자열값);
+		height(숫자값 또는 문자열값);
+		*숫자값만 기술하는 경우 : 단위를 px로 인식함.
+		*문자열로 기술하는 경우 : 반드시 단위를 기술해야 함.
+		*/
+		$('img').eq(1).width(190);  
+		$('img').eq(1).height(170); 
+
+		$('body img').on("click", function(event) {
+			 var $target = $(event.target); 
+			 $("#ptxt").empty();
+
+			if($target.hasClass("origin")){
+				$("#ptxt").append("원본 가로사이즈: "+ $target.width() +"px<br>");
+				$("#ptxt").append("원본 세로사이즈: "+ $target.height() +"px");
+			}else{
+				$("#ptxt").append("확대 가로사이즈: "+ $target.width() +"px<br>");
+				$("#ptxt").append("확대 세로사이즈: "+ $target.height() +"px");
+			}
+		});
+	});
+</script></head><body>
+	<img src="./img/cellphone.jpg" class="origin">
+	<img src="./img/cellphone.jpg" class="large">
+	<p id="ptxt"></p>
+</body></html>

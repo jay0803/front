@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery/3.7.0/jquery.js"></script>
+    <style>
+        ul {
+            float: left;
+            margin: 30px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('a').click(function(e){
+                //preventDefault(): 이벤트를 발생시킨 객체의 기본 이벤트를 차단
+                e.preventDefault(); //링크의 기본 이동 동작 차단
+                $("img").attr("src", $(this).attr("href")); //클릭한 링크의  href를 img src로 설정
+                //현재 페이지에 이미지 표시하도록 설정
+                //return false;
+            });
+
+            $("li").last().css({textDecoration: 'underline', color:
+                'blue', cursor : 'pointer'
+            }).click(function(){
+                $("img").removeAttr('src'); //이미지 숨기기
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href="./img/cute_dog.jpg">사진1</a></li>
+        <li><a href="./img/img_girl.jpg">사진2</a></li>
+        <li>사진 감추기</li>
+    </ul>
+    <img>
+    <div style="clear:both;"></div> 
+    <br><br><br>
+</body>
+</html>

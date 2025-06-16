@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>값</title>
+    <script src="http://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        .ptxt {
+            display: none;
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+
+            //1. hover와 on을 통한 txt1 표시/숨김
+            //hover()는 마우스를 올렸을 때와 뗐을 때 두 가지 콜백을 받음
+            //.a1 요소에 마우스를 올리면 txt1 보임. 마우스 빼면 txt1 숨김
+            $(".a1").hover(
+                function () { $('.txt1').show(); },
+                function () { $('.txt1').hide(); }
+            );
+
+            /*
+            on 함수 호출 형식
+            1. 한 개의 이벤트만 적용:  on("이벤트속성자", 콜백함수); 
+            2. 여러 개의 이벤트를 적용:
+            on({
+                "이벤트속성자1" : 콜백함수1 ,
+                "이벤트속성자2" : 콜백함수2,
+                ...
+            });
+            3. 여러 개의 이벤트에 한 개의 기능을 적용
+            **이벤트 종류 기술하는 경우 공백으로 띄어서 기술해준다.
+            on("이벤트속성자1  이벤트속성자2 ...", 콜백함수);
+            */
+            $('.a1').on({
+                "mouseover": function () { $('.txt1').show(); },
+                "mouseleave": function () { $('.txt1').hide(); }
+            });
+            //⚠️ 둘 다 같은 대상 .a1에 이벤트를 적용하므로 중복 실행됩니다.
+
+
+            //2. a2 링크 클릭 시 txt2 보이기 
+            //e.preventDefault()로 링크 이동을 막으려 했지만 e가 인자로 선언되지 않아서 에러가 납니다.
+            $(".a2").on("click", function () {
+                e.preventDefault();
+                $('.txt2').show();
+            });
+            // $(".a2").on("click", function (e) {
+            //     e.preventDefault();
+            //     $('.txt2').show();
+            // });
+
+            //3. 버튼 누르기 관련 이벤트 (txt3 제어)
+            // 버튼을 누르거나 마우스를 밖으로 빼면 txt3 보임
+            // 버튼에서 손을 떼면 txt3 사라짐
+            $('.btn1').on({
+                "mousedown mouseleave": function () {
+                    $('.txt3').show();
+                },
+                "mouseup": function () {
+                    $('.txt3').hide();
+                }
+            });
+
+            //버튼을 더블 클릭하면 txt3의 배경색을 연두색으로 변경
+            $(".btn1").on("dblclick", function () {
+                $(".txt3").css({ "background-color": "#0f0" });
+            });
+            
+            //4. 입력창 값 실시간 표시
+            //키보드 누를 때마다 #ipText 에 입력값을 출력
+            //console.log('555')로 콘솔 확인
+            //keyCode는 입력된 키의 코드값(예: A = 65)
+            let code;
+            $('#ipBox').keyup(function (e) {
+                code = e.keyCode;
+                $('#ipText').text(this.value);
+                console.log('555');
+            });
+
+            // $('#ipBox').keydown(function(){
+            //     $('#ipText').text(this.value);
+            // });
+
+            //change가 적용되는 시점은 blur시점임.
+            //입력창에서 포커스를 벗어났을 때(blur) 값이 변경되었으면 #ipText에 출력
+            $('#ipBox').change(function () {
+                $('#ipText').text(this.value);
+            });
+
+            //Enter 키 입력 시 기본 동작(예: form 제출)을 방지
+            //true → 캡처링 단계에서 실행 (버블링 전에 처리됨)
+            document.addEventListener(
+                'keydown',
+                function (event) {
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                    };
+                }, 
+                true);
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <p><a href="https://www.naver.com/" class="a1">a1 네이버</a></p>
+    <p class="txt1 ptxt">txt1 내용1</p>
+
+    <p><a href="https://www.daum.net/" class="a2" target="_blank">a2 다음</a></p>
+    <p class="txt2 ptxt">txt2 내용2</p>
+
+    <p><button class="btn1">btn1버튼</button></p>
+    <p class="txt3 ptxt">txt3 내용3</p>
+    <br><br>
+
+    입력 내용 : <span id="ipText"></span><br><br>
+    <form name='frm' action="ex04_02.html">
+        <input type="text" name="ipBox" id="ipBox" placeholder="테스트입력창"
+            style="width:500px; height:50px; font-size: 16px; padding-left:10px;">
+    </form>
+</body>
+
+</html>
